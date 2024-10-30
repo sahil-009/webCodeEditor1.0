@@ -4,12 +4,13 @@ import '@xterm/xterm/css/xterm.css';
 
 
 const Terminal = () => {
-    const terminalRef = useRef();
+    const terminalRef = useRef(null);
     const isRendered = useRef(false);
     
+    
     useEffect(() => {
-        if (isRendered.current) {
-            return;
+        if (isRendered.current) return; {
+        isRendered.current = true;  //render problem solved
         }
         const term = new XTerminal({
             rows: 20,
@@ -25,3 +26,5 @@ const Terminal = () => {
     return <div ref={terminalRef} id="terminal" />;
 }
 export default Terminal;
+
+
